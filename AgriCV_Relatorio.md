@@ -8,11 +8,11 @@
 
 | Discentes | Docente |
 |-----------|---------|
-| David Santos — nº 7588 | Valério Santos |
-| Natalino Semedo — nº 6423 | |
-| Tamiris Évora — nº 8034 | |
+| David Santos — Nº 7588 | Valério Santos |
+| Natalino Semedo — Nº 6423 | |
+| Tamiris Évora — Nº 8034 | |
 
-**Linguagens:** Python 3 + SWI-Prolog  
+**Linguagens:** Python 3 + SWI-Prolog
 **ODS 2 — Fome Zero e Agricultura Sustentável**
 
 ---
