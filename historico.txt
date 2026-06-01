@@ -2,3 +2,8 @@ Davi | Ilha: brava | Tipo: regadio | Mês: dezembro | Época: seca | Clima: humi
 Davi | Ilha: brava | Tipo: regadio | Mês: janeiro | Época: seca | Clima: humido_montanhoso
 Natalino | santiago | sequeiro | abril | seca | tropical_semiarido
 Natalino | Ilha: santo_antao | Tipo: regadio | Mês: janeiro | Época: seca | Clima: humido_montanhoso
+tams | Ilha: santo_antao | Tipo: regadio | Mês: fevereiro | Época: seca | Clima: humido_montanhoso
+tams | Ilha: sal | Tipo: regadio | Mês: janeiro | Época: seca | Clima: arido
+tams | Ilha: sao_vicente | Tipo: regadio | Mês: abril | Época: seca | Clima: seco
+tamiris | Ilha: sao_vicente | Tipo: regadio | Mês: fevereiro | Época: seca | Clima: seco
+sandra | Ilha: santo_antao | Tipo: regadio | Mês: fevereiro | Época: seca | Clima: humido_montanhoso

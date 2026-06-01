@@ -294,7 +294,7 @@ resultado_texto.pack(pady=20)
 
 rodape = tk.Label(
     janela,
-    text="Python + SWI-Prolog | Projeto AgriCV | ODS 2 — Fome Zero",
+    text="Python + SWI-Prolog | Projeto AgriCV | ODS 2 - Fome Zero",
     font=("Arial", 9),
     fg="#888888"
 )
