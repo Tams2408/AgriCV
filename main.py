@@ -21,8 +21,6 @@ def main():
     #Registo do Agricultor
     nome_usuario = input("Digite seu nome: ")
     print(f"\nBem-vindo ao AgriCV, {nome_usuario}!")
-    menu = Menu()
-    converter_ilha = converter_ilha()
 
     #loop para que o usuário possa fazer várias consultas sem precisar reiniciar o programa
     while True :
@@ -48,17 +46,17 @@ def main():
                 print("\nIlha inválida.")
                 continue
 
-            mostrar_menu_agricultura()
+            Menu.mostrar_menu_agricultura()
             opcao_tipo = input("\nEscolha o tipo de agricultura: ")
-            tipo = converter_tipo(opcao_tipo)
+            tipo = Conversor.converter_tipo(opcao_tipo)
 
             if tipo is None:
                 print("\nTipo de agricultura inválido.")
                 continue
 
-            mostrar_menu_meses()
+            Menu.mostrar_menu_meses()
             opcao_mes = input("\nEscolha o mês: ")
-            mes = converter_mes(opcao_mes)
+            mes = Conversor.converter_mes(opcao_mes)
 
             if mes is None:
                 print("\nMês inválido.")
@@ -102,73 +100,17 @@ def main():
                 print("Pode ser necessário escolher outro mês, ilha ou tipo de agricultura.")
 
             # Dicas de rega por cultura
-            for cultura in resultados:
-                if str(cultura["Cultura"]) == "milho":
-                    print("- Milho: rega a cada 3 dias")
-                elif str(cultura["Cultura"]) == "feijao":
-                    print("- Feijão: tolera períodos sem chuva")
-                elif str(cultura["Cultura"]) == "alface":
-                    print("- Alface: rega diária necessária")
-                elif str(cultura["Cultura"]) == "tomate":
-                    print("- Tomate: rega 2x por semana")
-                elif str(cultura["Cultura"]) == "banana":
-                    print("- Banana: solo húmido permanente")
-                elif str(cultura["Cultura"]) == "cana_de_acucar":
-                    print("- Cana-de-açúcar: rega frequente necessária")
-                elif str(cultura["Cultura"]) == "batata_doce":
-                    print("- Batata-doce: rega moderada")
-                elif str(cultura["Cultura"]) == "hortalicas":
-                    print("- Hortícolas: rega regular 2x por semana")
-                elif str(cultura["Cultura"]) == "abobora":
-                    print("- Abóbora: rega moderada, tolera alguma seca")
-                elif str(cultura["Cultura"]) == "mandioca":
-                    print("- Mandioca: muito resistente à seca")
-                elif str(cultura["Cultura"]) == "coco":
-                    print("- Coco: rega abundante, solo sempre húmido")
-                elif str(cultura["Cultura"]) == "cafe":
-                    print("- Café: rega regular, evitar excesso")
-                elif str(cultura["Cultura"]) == "uva":
-                    print("- Uva: rega moderada, solo bem drenado")
-                elif str(cultura["Cultura"]) == "maca":
-                    print("- Maçã: rega regular nas fases de crescimento")
-                elif str(cultura["Cultura"]) == "inhame":
-                    print("- Inhame: solo húmido, rega frequente")
-                elif str(cultura["Cultura"]) == "pimentos":
-                    print("- Pimentos: rega regular 2x por semana")
-                elif str(cultura["Cultura"]) == "cenoura":
-                    print("- Cenoura: solo húmido, rega moderada")
-                elif str(cultura["Cultura"]) == "couve":
-                    print("- Couve: rega regular, não tolera seca")
-                elif str(cultura["Cultura"]) == "amendoim":
-                    print("- Amendoim: tolera períodos secos")
-                elif str(cultura["Cultura"]) == "feijao_congo":
-                    print("- Feijão-congo: muito resistente à seca")
+            DicasCultura.mostrar_dicas(resultados)
             
             # Dicas de rega por ilha
-            dicas_rega = {
-                "santo_antao": "Dica de rega: Use as levadas para irrigação por gravidade.",
-                "santiago":    "Dica de rega: Aproveite poços e nascentes para regadio.",
-                "sal":         "Dica de rega: Rega gota-a-gota poupa até 50% da água.",
-                "boa_vista":   "Dica de rega: Use cisternas para guardar água da chuva.",
-                "fogo":        "Dica de rega: Solo vulcânico retém bem a humidade.",
-                "maio":        "Dica de rega: Cubra o solo para reter a humidade.",
-                "brava":       "Dica de rega: Aproveite a humidade natural das zonas altas.",
-                "sao_nicolau": "Dica de rega: Regue cedo de manhã para reduzir evaporação.",
-                "sao_vicente": "Dica de rega: Produza em estufa para proteger do vento.",
-            }
-
-            if ilha in dicas_rega:
-                print(f"\n{dicas_rega[ilha]}")
+            Dicas.mostrar_dica_rega(ilha)
 
             print("\n==========================================")
             print("Consulta concluída.")
             print("==========================================")
 
             # guardar no ficheiro
-            with open("historico.txt", mode="at", encoding="utf-8") as f:
-                f.write(nome_usuario + " | Ilha: " + ilha + " | Tipo: " + tipo + " | Mês: " + mes + " | Época: " + epoca + " | Clima: " + clima + "\n")
-
-            print("Consulta guardada, " + nome_usuario + "!")
+            Historico.guardar(nome_usuario, ilha, tipo, mes, epoca, clima)
 
 
             resposta = input("\nDeseja fazer nova consulta? (s/n): ")
@@ -177,9 +119,9 @@ def main():
                 break
 
         elif opcao == "2":
-                mostrar_menu_ilhas()
+                Menu.mostrar_menu_ilhas()
                 opcao_ilha = input("\nEscolha a ilha: ")
-                ilha = converter_ilha(opcao_ilha)
+                ilha = Conversor.converter_ilha(opcao_ilha)
                 if ilha is None:
                     print("\nIlha inválida.")
                     continue
@@ -196,31 +138,24 @@ def main():
         
         elif opcao == "3":
             while True:
-                mostrar_menu_hidroponia()
+                Hidroponia.mostrar_menu_hidroponia()
                 opcao_hidroponia = input("\nEscolha a sua opcao: ")
-                converter_menu_hidroponia(opcao_hidroponia)
                 if opcao_hidroponia == "0":
                     break
                 elif opcao_hidroponia == "1":
-                    o_que_e()
+                    Hidroponia.o_que_e()
                     
                 elif opcao_hidroponia == "2":
-                    culturas()
+                    Hidroponia.culturas()
                     
                 elif opcao_hidroponia == "3":
-                    como_comecar()
+                    Hidroponia.como_comecar()
                     
                 elif opcao_hidroponia == "4":
-                    dicas_por_ilha()
+                    Hidroponia.dicas_por_ilha()
                        
                 else:
                     print("\nOpção inválida. Por favor, escolha uma opção válida.")
-
-            
-        resposta = input("\nDeseja fazer nova consulta? (s/n): ")
-        if resposta.lower() not in ("s", "sim"):
-            print("\nObrigado por usar o AgriCV!")
-            break
 
 if __name__ == "__main__":
     main()

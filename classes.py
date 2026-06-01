@@ -103,38 +103,36 @@ class Dicas:
 
 class DicasCultura:
 
-    Dicas = {
-        "milho": "Milho: rega a cada 3 dias",
-        "feijao": "Feijão: tolera períodos sem chuva",
-        "alface": "Alface: rega diária necessária",
-        "tomate": "Tomate: rega 2x por semana",
-        "banana": "Banana: solo húmido permanente",
+    dicas = {
+        "milho":          "Milho: rega a cada 3 dias",
+        "feijao":         "Feijão: tolera períodos sem chuva",
+        "alface":         "Alface: rega diária necessária",
+        "tomate":         "Tomate: rega 2x por semana",
+        "banana":         "Banana: solo húmido permanente",
         "cana_de_acucar": "Cana-de-açúcar: rega frequente necessária",
-        "batata_doce": "Batata-doce: rega moderada",
-        "hortalicas": "Hortícolas: rega regular 2x por semana",
-        "abobora": "Abóbora: rega moderada, tolera alguma seca",
-        "mandioca": "Mandioca: muito resistente à seca",
-        "coco": "Coco: rega abundante, solo sempre húmido",
-        "cafe": "Café: rega regular, evitar excesso",
-        "uva": "Uva: rega moderada, solo bem drenado",
-        "maca": "Maçã: rega regular nas fases de crescimento",
-        "inhame": "Inhame: solo húmido, rega frequente",
-        "pimentos": "Pimentos: rega regular 2x por semana",
-        "cenoura": "Cenoura: solo húmido, rega moderada",
-        "couve": "Couve: rega regular, não tolera seca",
-        "amendoim": "Amendoim: tolera períodos secos",
-        "feijao_congo": "Feijão-congo: muito resistente à seca"
-}
+        "batata_doce":    "Batata-doce: rega moderada",
+        "hortalicas":     "Hortícolas: rega regular 2x por semana",
+        "abobora":        "Abóbora: rega moderada, tolera alguma seca",
+        "mandioca":       "Mandioca: muito resistente à seca",
+        "coco":           "Coco: rega abundante, solo sempre húmido",
+        "cafe":           "Café: rega regular, evitar excesso",
+        "uva":            "Uva: rega moderada, solo bem drenado",
+        "maca":           "Maçã: rega regular nas fases de crescimento",
+        "inhame":         "Inhame: solo húmido, rega frequente",
+        "pimentos":       "Pimentos: rega regular 2x por semana",
+        "cenoura":        "Cenoura: solo húmido, rega moderada",
+        "couve":          "Couve: rega regular, não tolera seca",
+        "amendoim":       "Amendoim: tolera períodos secos",
+        "feijao_congo":   "Feijão-congo: muito resistente à seca"
+    }
 
-@staticmethod
-def mostrar_dicas(resultados):
+    @staticmethod
+    def mostrar_dicas(resultados):
         print("\nDicas de rega:")
-        
         for resultado in resultados:
             cultura = str(resultado["Cultura"])
-
-            if cultura in DicasCultura.Dicas:
-                print("- " + DicasCultura.Dicas[cultura])
+            if cultura in DicasCultura.dicas:
+                print("- " + DicasCultura.dicas[cultura])
 
 class Hidroponia:
     
