@@ -80,7 +80,6 @@ class Historico:
                 f"Mês: {mes} | Época: {epoca} | Clima: {clima}\n"
             )
 
-
 class Dicas:
 
     @staticmethod
@@ -138,51 +137,62 @@ def mostrar_dicas(resultados):
                 print("- " + DicasCultura.Dicas[cultura])
 
 class Hidroponia:
-
+    
     @staticmethod
-    def mostrar_menu():
-        print("\n===== HIDROPONIA =====")
-        print("1 - O que é hidroponia e por que usar em Cabo Verde")
-        print("2 - Quais culturas posso cultivar")
-        print("3 - Como começar (passo a passo simples)")
-        print("4 - Dicas por ilha")
-        print("0 - Voltar ao menu principal")
-
+    def mostrar_menu_hidroponia():
+                print("\n===== HIDROPONIA =====")
+                print("1 - O que é hidroponia e por que usar em Cabo Verde")
+                print("2 - Quais culturas posso cultivar")
+                print("3 - Como começar (passo a passo simples)")
+                print("4 - Dicas por ilha")
+                print("0 - Voltar ao menu principal")
+    
+    @staticmethod
+    def converter_menu_hidroponia(opcao):
+        opcoes = {
+            "1": "Definicao hidroponia e Motivo do seu uso em Cabo Verde",
+            "2": "Culturas possíveis",
+            "3": "Passo a passo de como comecar",
+            "4": "Dicar para cada ilha",
+            "0": "Voltar menu principal"
+        }
+        return opcoes.get(opcao)
+    
     @staticmethod
     def o_que_e():
         print("\nA hidroponia é uma técnica de cultivo sem solo.")
         print("As plantas crescem em água enriquecida com nutrientes.")
         print("É muito útil em Cabo Verde devido à escassez de água.")
         print("Permite produzir alimentos com menor consumo de água e em espaços reduzidos.")
-
+    
     @staticmethod
     def culturas():
-        print("\nCulturas adequadas para hidroponia:")
-        print("- Alface")
-        print("- Tomate")
-        print("- Pimentos")
-        print("- Couve")
-        print("- Hortícolas diversas")
-        print("- Ervas aromáticas")
-        print("- Pepino")
-        print("- Morango")
-
+            print("\nCulturas adequadas para hidroponia:")
+            print("- Alface")
+            print("- Tomate")
+            print("- Pimentos")
+            print("- Couve")
+            print("- Hortícolas diversas")
+            print("- Ervas aromáticas")
+            print("- Pepino")
+            print("- Morango")
+    
     @staticmethod
     def como_comecar():
-        print("\nPasso a passo simples:")
-        print("1. Escolha um local protegido do vento.")
-        print("2. Monte um sistema com tubos ou recipientes.")
-        print("3. Utilize água limpa.")
-        print("4. Adicione solução nutritiva adequada.")
-        print("5. Coloque as mudas.")
-        print("6. Verifique diariamente o nível da água.")
-        print("7. Controle a exposição solar e a temperatura.")
-
+            print("\nPasso a passo simples:")
+            print("1. Escolha um local protegido do vento.")
+            print("2. Monte um sistema com tubos ou recipientes.")
+            print("3. Utilize água limpa.")
+            print("4. Adicione solução nutritiva adequada.")
+            print("5. Coloque as mudas.")
+            print("6. Verifique diariamente o nível da água.")
+            print("7. Controle a exposição solar e a temperatura.")
+    
     @staticmethod
     def dicas_por_ilha():
-        print("\nDicas por ilha:")
-        print("- Santiago: Aproveite a proximidade dos mercados locais.")
-        print("- Santo Antão: Utilize a disponibilidade de água das zonas altas.")
-        print("- Fogo: Aproveite o clima ameno das encostas.")
-        print("- Sal e Boa Vista: A hidroponia ajuda a reduzir o impacto da seca.")
-        print("- São Vicente: Produza em estufas para reduzir o efeito dos ventos.")
+            print("\nDicas por ilha:")
+            print("- Santiago: Aproveite a proximidade dos mercados locais.")
+            print("- Santo Antão: Utilize a disponibilidade de água das zonas altas.")
+            print("- Fogo: Aproveite o clima ameno das encostas.")
+            print("- Sal e Boa Vista: A hidroponia ajuda a reduzir o impacto da seca.")
+            print("- São Vicente: Produza em estufas para reduzir o efeito dos ventos.")

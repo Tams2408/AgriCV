@@ -7,126 +7,6 @@ from classes import Dicas
 from classes import DicasCultura
 from classes import Hidroponia
 
-def mostrar_menu_ilhas():
-    print("\nIlhas disponíveis:")
-    print("1 - Santiago")
-    print("2 - Fogo")
-    print("3 - Santo Antão")
-    print("4 - São Vicente")
-    print("5 - São Nicolau")
-    print("6 - Sal")
-    print("7 - Boa Vista")
-    print("8 - Maio")
-    print("9 - Brava")
-
-
-def converter_ilha(opcao):
-    ilhas = {
-        "1": "santiago",
-        "2": "fogo",
-        "3": "santo_antao",
-        "4": "sao_vicente",
-        "5": "sao_nicolau",
-        "6": "sal",
-        "7": "boa_vista",
-        "8": "maio",
-        "9": "brava",
-    }
-
-    return ilhas.get(opcao)
-
-
-def mostrar_menu_meses():
-    print("\nMeses do ano:")
-    print("1  - Janeiro    2  - Fevereiro  3  - Março")
-    print("4  - Abril      5  - Maio       6  - Junho")
-    print("7  - Julho      8  - Agosto     9  - Setembro")
-    print("10 - Outubro    11 - Novembro   12 - Dezembro")
-
-
-def converter_mes(opcao):
-    meses = {
-        "1":  "janeiro",
-        "2":  "fevereiro",
-        "3":  "marco",
-        "4":  "abril",
-        "5":  "maio",
-        "6":  "junho",
-        "7":  "julho",
-        "8":  "agosto",
-        "9":  "setembro",
-        "10": "outubro",
-        "11": "novembro",
-        "12": "dezembro"
-    }
-    return meses.get(opcao)
-
-
-
-def mostrar_menu_agricultura():
-    print("\nTipos de agricultura:")
-    print("1 - Sequeiro")
-    print("2 - Regadio")
-
-
-def converter_tipo(opcao):
-    tipos = {"1": "sequeiro", "2": "regadio"}
-
-    return tipos.get(opcao)
-
-def mostrar_menu_hidroponia():
-                print("\n===== HIDROPONIA =====")
-                print("1 - O que é hidroponia e por que usar em Cabo Verde")
-                print("2 - Quais culturas posso cultivar")
-                print("3 - Como começar (passo a passo simples)")
-                print("4 - Dicas por ilha")
-                print("0 - Voltar ao menu principal")
-
-def converter_menu_hidroponia(opcao):
-    opcoes = {
-        "1": "Definicao hidroponia e Motivo do seu uso em Cabo Verde",
-        "2": "Culturas possíveis",
-        "3": "Passo a passo de como comecar",
-        "4": "Dicar para cada ilha",
-        "0": "Voltar menu principal"
-    }
-    return opcoes.get(opcao)
-
-def o_que_e():
-        print("\nA hidroponia é uma técnica de cultivo sem solo.")
-        print("As plantas crescem em água enriquecida com nutrientes.")
-        print("É muito útil em Cabo Verde devido à escassez de água.")
-        print("Permite produzir alimentos com menor consumo de água e em espaços reduzidos.")
-
-def culturas():
-        print("\nCulturas adequadas para hidroponia:")
-        print("- Alface")
-        print("- Tomate")
-        print("- Pimentos")
-        print("- Couve")
-        print("- Hortícolas diversas")
-        print("- Ervas aromáticas")
-        print("- Pepino")
-        print("- Morango")
-
-def como_comecar():
-        print("\nPasso a passo simples:")
-        print("1. Escolha um local protegido do vento.")
-        print("2. Monte um sistema com tubos ou recipientes.")
-        print("3. Utilize água limpa.")
-        print("4. Adicione solução nutritiva adequada.")
-        print("5. Coloque as mudas.")
-        print("6. Verifique diariamente o nível da água.")
-        print("7. Controle a exposição solar e a temperatura.")
-
-def dicas_por_ilha():
-        print("\nDicas por ilha:")
-        print("- Santiago: Aproveite a proximidade dos mercados locais.")
-        print("- Santo Antão: Utilize a disponibilidade de água das zonas altas.")
-        print("- Fogo: Aproveite o clima ameno das encostas.")
-        print("- Sal e Boa Vista: A hidroponia ajuda a reduzir o impacto da seca.")
-        print("- São Vicente: Produza em estufas para reduzir o efeito dos ventos.")
-
 
 def main():
     try:
@@ -141,6 +21,8 @@ def main():
     #Registo do Agricultor
     nome_usuario = input("Digite seu nome: ")
     print(f"\nBem-vindo ao AgriCV, {nome_usuario}!")
+    menu = Menu()
+    converter_ilha = converter_ilha()
 
     #loop para que o usuário possa fazer várias consultas sem precisar reiniciar o programa
     while True :
@@ -158,9 +40,9 @@ def main():
             break
         
         elif opcao == "1":
-            mostrar_menu_ilhas()
+            Menu.mostrar_menu_ilhas()
             opcao_ilha = input("\nEscolha a ilha: ")
-            ilha = converter_ilha(opcao_ilha)
+            ilha = Conversor.converter_ilha(opcao_ilha)
 
             if ilha is None:
                 print("\nIlha inválida.")
@@ -313,27 +195,32 @@ def main():
                 continue
         
         elif opcao == "3":
-            mostrar_menu_hidroponia()
-            opcao_hidroponia = input("\nEscolha a sua opcao: ")
-            converter_menu_hidroponia(opcao_hidroponia)
-            if opcao == "0":
-                break
-            elif opcao_hidroponia == "1":
-                o_que_e()
-                continue
-            elif opcao_hidroponia == "2":
-                culturas()
-                continue
-            elif opcao_hidroponia == "3":
-                como_comecar()
-                continue
-            elif opcao_hidroponia == "4":
-                dicas_por_ilha()
-                continue           
+            while True:
+                mostrar_menu_hidroponia()
+                opcao_hidroponia = input("\nEscolha a sua opcao: ")
+                converter_menu_hidroponia(opcao_hidroponia)
+                if opcao_hidroponia == "0":
+                    break
+                elif opcao_hidroponia == "1":
+                    o_que_e()
+                    
+                elif opcao_hidroponia == "2":
+                    culturas()
+                    
+                elif opcao_hidroponia == "3":
+                    como_comecar()
+                    
+                elif opcao_hidroponia == "4":
+                    dicas_por_ilha()
+                       
+                else:
+                    print("\nOpção inválida. Por favor, escolha uma opção válida.")
 
-        else:
-            print("\nOpção inválida. Por favor, escolha uma opção válida.")
-        
+            
+        resposta = input("\nDeseja fazer nova consulta? (s/n): ")
+        if resposta.lower() not in ("s", "sim"):
+            print("\nObrigado por usar o AgriCV!")
+            break
 
 if __name__ == "__main__":
     main()
