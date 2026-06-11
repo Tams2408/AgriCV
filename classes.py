@@ -138,20 +138,20 @@ class Hidroponia:
     
     @staticmethod
     def mostrar_menu_hidroponia():
-                print("\n===== HIDROPONIA =====")
-                print("1 - O que é hidroponia e por que usar em Cabo Verde")
-                print("2 - Quais culturas posso cultivar")
-                print("3 - Como começar (passo a passo simples)")
+                print("\n===== HIDROPONIA =====\n")
+                print("1 - O que é hidroponia e por quê usar em Cabo Verde?")
+                print("2 - Quais culturas posso cultivar?")
+                print("3 - Como começar? (passo a passo simples)")
                 print("4 - Dicas por ilha")
                 print("0 - Voltar ao menu principal")
     
     @staticmethod
     def converter_menu_hidroponia(opcao):
         opcoes = {
-            "1": "Definicao hidroponia e Motivo do seu uso em Cabo Verde",
+            "1": "Definição hidroponia e Motivo do seu uso em Cabo Verde",
             "2": "Culturas possíveis",
-            "3": "Passo a passo de como comecar",
-            "4": "Dicar para cada ilha",
+            "3": "Passo a passo de como começar",
+            "4": "Dicas para cada ilha",
             "0": "Voltar menu principal"
         }
         return opcoes.get(opcao)
@@ -165,7 +165,7 @@ class Hidroponia:
     
     @staticmethod
     def culturas():
-            print("\nCulturas adequadas para hidroponia:")
+            print("\nCulturas adequadas para hidroponia:\n")
             print("- Alface")
             print("- Tomate")
             print("- Pimentos")
@@ -177,7 +177,7 @@ class Hidroponia:
     
     @staticmethod
     def como_comecar():
-            print("\nPasso a passo simples:")
+            print("\nPasso a passo simples:\n")
             print("1. Escolha um local protegido do vento.")
             print("2. Monte um sistema com tubos ou recipientes.")
             print("3. Utilize água limpa.")
@@ -188,7 +188,7 @@ class Hidroponia:
     
     @staticmethod
     def dicas_por_ilha():
-            print("\nDicas por ilha:")
+            print("\nDicas por ilha:\n")
             print("- Santiago: Aproveite a proximidade dos mercados locais.")
             print("- Santo Antão: Utilize a disponibilidade de água das zonas altas.")
             print("- Fogo: Aproveite o clima ameno das encostas.")

@@ -47,14 +47,14 @@ def consultar_recomendacao():
 
         texto = "RESULTADO DA RECOMENDAÇÃO\n"
         texto += "============================\n\n"
-        texto += f"Ilha: {ilha_nome}\n"
-        texto += f"Tipo de agricultura: {tipo_nome}\n"
-        texto += f"Mês: {mes_nome}\n"
-        texto += f"Época identificada: {epoca_fmt}\n"
+        texto += f"Ilha: {ilha_nome}\n\n"
+        texto += f"Tipo de agricultura: {tipo_nome}\n\n"
+        texto += f"Mês: {mes_nome}\n\n"
+        texto += f"Época identificada: {epoca_fmt}\n\n"
         texto += f"Clima predominante: {clima_fmt}\n\n"
 
         if resultados:
-            texto += "Culturas recomendadas:\n"
+            texto += "Culturas recomendadas:\n\n"
             for resultado in resultados:
                 cultura = str(resultado["Cultura"]).replace("_", " ").title()
                 texto += f"- {cultura}\n"
@@ -88,7 +88,7 @@ def consultar_recomendacao():
             "frutas":       "- Frutas: rega moderada conforme a variedade",
         }
 
-        texto += "\nNecessidade de água:\n"
+        texto += "\nNecessidade de água:\n\n"
         for resultado in resultados:
             nome_cultura = str(resultado["Cultura"])
             if nome_cultura in dicas_cultura:
@@ -294,7 +294,7 @@ resultado_texto.pack(pady=20)
 
 rodape = tk.Label(
     janela,
-    text="Python + SWI-Prolog | Projeto AgriCV | ODS 2 - Fome Zero",
+    text="Python + SWI-Prolog | Projeto AgriCV | ODS 2 - Fome Zero e Agricultura Sustentável",
     font=("Arial", 9),
     fg="#888888"
 )

@@ -7,3 +7,4 @@ tams | Ilha: sal | Tipo: regadio | Mês: janeiro | Época: seca | Clima: arido
 tams | Ilha: sao_vicente | Tipo: regadio | Mês: abril | Época: seca | Clima: seco
 tamiris | Ilha: sao_vicente | Tipo: regadio | Mês: fevereiro | Época: seca | Clima: seco
 sandra | Ilha: santo_antao | Tipo: regadio | Mês: fevereiro | Época: seca | Clima: humido_montanhoso
+tamiris | Ilha: santo_antao | Tipo: regadio | Mês: abril | Época: seca | Clima: humido_montanhoso

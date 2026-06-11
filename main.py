@@ -25,7 +25,7 @@ def main():
     #loop para que o usuário possa fazer várias consultas sem precisar reiniciar o programa
     while True :
         
-        print("\nO que deseja fazer?")
+        print("\nO que deseja fazer?\n")
         print("1 - Obter recomendação")
         print("2 - Ver todas as culturas de uma ilha")
         print("3 - Hidroponia")
@@ -83,7 +83,7 @@ def main():
 
             print("\n==========================================")
             print("Resultado da Recomendação")
-            print("==========================================")
+            print("==========================================\n")
             print(f"Ilha: {ilha.replace('_', ' ').title()}")
             print(f"Tipo de agricultura: {tipo.title()}")
             print(f"Mês: {mes.title()}")
@@ -139,7 +139,7 @@ def main():
         elif opcao == "3":
             while True:
                 Hidroponia.mostrar_menu_hidroponia()
-                opcao_hidroponia = input("\nEscolha a sua opcao: ")
+                opcao_hidroponia = input("\nEscolha a sua opção: ")
                 if opcao_hidroponia == "0":
                     break
                 elif opcao_hidroponia == "1":
