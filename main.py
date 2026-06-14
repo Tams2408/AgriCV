@@ -20,7 +20,7 @@ def main():
 
     #Registo do Agricultor
     nome_usuario = input("Digite seu nome: ")
-    print(f"\nBem-vindo ao AgriCV, {nome_usuario}!")
+    print(f"\nBem-vindo ao AgriCV, {nome_usuario}!\n")
 
     #loop para que o usuário possa fazer várias consultas sem precisar reiniciar o programa
     while True :
@@ -77,7 +77,7 @@ def main():
                 print("Considere culturas resistentes à falta de água.")
 
             if epoca == "seca" and tipo == "sequeiro":
-                print("Aviso: Epoca seca.")
+                print("Aviso: Época seca.")
                 print("Sequeiro pode ter resultados limitados. Considere escolher outro tipo de agricultura ou mês.")
                 continue
 
@@ -91,7 +91,7 @@ def main():
             print(f"Clima predominante: {str(clima).replace('_', ' ').title()}")
 
             if resultados:
-                print("\nCulturas recomendadas:")
+                print("\nCulturas recomendadas:\n")
                 for resultado in resultados:
                     cultura = str(resultado["Cultura"]).replace("_", " ").title()
                     print(f"- {cultura}")
@@ -128,7 +128,7 @@ def main():
         
                 resultados_todos = list(prolog.query(f"cultura({ilha}, Cultura, _, _)"))
                 culturas_vistas = []
-                print(f"\nTodas as culturas de {ilha.replace('_', ' ').title()}:")
+                print(f"\nTodas as culturas de {ilha.replace('_', ' ').title()}:\n")
                 for r in resultados_todos:
                     cultura = str(r["Cultura"]).replace("_", " ").title()
                     if cultura not in culturas_vistas:

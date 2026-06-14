@@ -124,8 +124,10 @@ class DicasCultura:
         "couve":          "Couve: rega regular, não tolera seca",
         "amendoim":       "Amendoim: tolera períodos secos",
         "feijao_congo":   "Feijão-congo: muito resistente à seca"
+
     }
 
+  
     @staticmethod
     def mostrar_dicas(resultados):
         print("\nDicas de rega:")
