@@ -28,12 +28,12 @@ Python 3 + SWI-Prolog
 
 ## Ficheiros
 
-conhecimento.pl - base de dados Prolog
-main.py         - versão terminal
-main_gui.py     - versão com interface
-historico.txt   - histórico das consultas feitas no sistema
-consultas.py    - identifica a época do ano e o clima da ilha para obter as culturas recomendadas
-classes.py      - identifica as classes do sistema
+- conhecimento.pl - base de dados Prolog
+- main.py         - versão terminal
+- main_gui.py     - versão com interface
+- historico.txt   - histórico das consultas feitas no sistema
+- consultas.py    - identifica a época do ano e o clima da ilha para obter as culturas recomendadas
+- classes.py      - identifica as classes do sistema
 
 
 **ODS 2 — Fome Zero e Agricultura Sustentável**
@@ -149,9 +149,9 @@ identificar_clima(Ilha, Clima) :- clima(Ilha, Clima).
 
 ### 6.3 Exemplo de Funcionamento
 
-Entrada:       Santiago | Sequeiro | Agosto
-Processamento: Agosto -> Época Chuvosa
-Saída:         Milho, Feijão, Abóbora, Mandioca
+- Entrada:       Santiago | Sequeiro | Agosto
+- Processamento: Agosto -> Época Chuvosa
+- Saída:         Milho, Feijão, Abóbora, Mandioca
 
 ## 7. Agricultura em Cabo Verde por Ilha 
 
@@ -190,7 +190,7 @@ Cada ilha de Cabo Verde tem condições climáticas e agrícolas muito diferente
 | **No sistema** | 10 culturas registadas — a mais diversificada do sistema. | 
 | **Dica de rega** | Usar as levadas para irrigação por gravidade — sistema tradicional eficiente. | 
 
-### 🏙 São Vicente — Cidade e cultura, agricultura limitada 
+### São Vicente — Cidade e cultura, agricultura limitada 
 
 | Campo | Detalhe |
 |-------|---------| 
@@ -266,13 +266,7 @@ Durante o desenvolvimento e revisão do projeto, foram identificados e corrigido
 
 **Porque é um problema:** Santa Luzia é a única ilha desabitada de Cabo Verde. sem_recomendacao_agricola aparecia como se fosse o nome de uma cultura, criando confusão ao utilizador. **A Solução:** Removidas as três linhas referentes a Santa Luzia do ficheiro conhecimento.pl.
 
-prolog
-% REMOVIDO:
-ilha(santa_luzia).
-cultura(santa_luzia, sem_recomendacao_agricola, sequeiro, seca).
-clima(santa_luzia, arido).
-
-### Erro 2 — Mês 'março' com acento não era reconhecido 
+### Erro 2 — Mês 'março' com acento não era reconhecido
 
 **O Erro:** O utilizador digitava março mas o Prolog só conhecia marco. A função normalizar_texto() não resolvia acentos. 
 
@@ -280,50 +274,21 @@ clima(santa_luzia, arido).
 
 **A Solução:** Criado um menu numerado de meses. O utilizador escolhe 1 a 12 e o Python converte automaticamente para o átomo Prolog correto, sem problemas de acentos.
 
-python
-# ANTES: texto livre com erros de acentuação
-mes = input("Digite o mês: ")
-
-# DEPOIS: menu com números sem possibilidade de erro
-mostrar_menu_meses()
-opcao_mes = input("Escolha o mês: ")
-mes = converter_mes(opcao_mes)  
-# '3' -> 'marco'
-
 ### Erro 3 — Programa terminava após cada consulta 
 
 **O Erro:** Depois de apresentar o resultado, o main.py terminava automaticamente. 
 
 **Porque é um problema:** O agricultor tinha de reiniciar o programa para cada nova consulta, o que é inconveniente.
+
 **A Solução:** Adicionado ciclo while True com pergunta de nova consulta. Os erros de validação usam continue em vez de return.
 
-python
-while True:
-    # ... perguntas e resultados ...
-    resposta = input("Deseja fazer nova consulta? (s/n): ")
-    if resposta.lower() not in ("s", "sim"):
-        print("Obrigado por usar o AgriCV!")
-        break
-        
-### Erro 4 — Código duplicado em main.py e main_gui.py
+### Erro 4 - Código duplicado em main.py e main_gui.py
 
 **O Erro:** A lógica de consulta ao Prolog estava repetida nos dois ficheiros Python. 
 
 **Porque é um problema:** Qualquer correção tinha de ser feita em dois sítios, arriscando inconsistências e erros difíceis de detetar. 
 
 **A Solução:** Criado o ficheiro consultas.py com a função obter_recomendacao() partilhada por ambos os ficheiros.
-
-python
-# consultas.py — lógica partilhada
-def obter_recomendacao(prolog, ilha, tipo, mes):
-    epocas = list(prolog.query(f"identificar_epoca({mes}, Epoca)"))
-    if not epocas:
-        return None, None, []
-    epoca = str(epocas[0]["Epoca"])
-    climas = list(prolog.query(f"identificar_clima({ilha}, Clima)"))
-    clima = str(climas[0]["Clima"]) if climas else "nao_definido"
-    resultados = list(prolog.query(f"recomendar({ilha},{tipo},{mes},Cultura)"))
-    return epoca, clima, resultados
     
 ### Erro 5 — Boa Vista com culturas inadequadas ao clima árido 
 
@@ -333,14 +298,6 @@ def obter_recomendacao(prolog, ilha, tipo, mes):
 
 **A Solução:** Removidas as linhas de milho e feijão. Ficou apenas hortícolas de regadio, que é o único tipo de produção viável.
 
-prolog
-% REMOVIDO — culturas inadequadas:
-cultura(boa_vista, milho, sequeiro, chuvosa).
-cultura(boa_vista, feijao, sequeiro, chuvosa).
-
-% MANTIDO — única produção viável:
-cultura(boa_vista, hortalicas, regadio, seca).
-
 ### Erro 6 — str() em falta nas comparações de dicas de rega 
 
 **O Erro:** As dicas de rega por cultura comparavam o átomo Prolog diretamente com string Python sem converter com str(). 
@@ -348,14 +305,6 @@ cultura(boa_vista, hortalicas, regadio, seca).
 **Porque é um problema:** O pyswip devolve os átomos Prolog como objetos Term, não como strings Python. Sem o str(), a comparação é sempre False — as dicas de rega nunca aparecem no programa real com o Prolog instalado. 
 
 **A Solução:** Adicionado str() em todas as comparações das dicas de rega por cultura.
-
-python
-# ANTES — comparação incorreta:
-if cultura["Cultura"] == "milho":
-
-# DEPOIS — comparação correta:
-if str(cultura["Cultura"]) == "milho":
-    print("- Milho: rega a cada 3 dias")
 
 ## 9. Melhorias Implementadas 
 
@@ -399,7 +348,10 @@ No final de cada consulta, o sistema apresenta uma dica de rega personalizada pa
 
 ## 10. Interface do Sistema 
 
-### 10.1 Versão Terminal (main.py) A versão de terminal apresenta menus numerados para todas as escolhas, tornando impossível errar a digitação.
+### 10.1 Versão Terminal (main.py) 
+
+A versão de terminal apresenta menus numerados para todas as escolhas, tornando impossível errar a digitação.
+
 ==========================================
         AgriCV - Sistema Agrícola CV
  Recomendação de Culturas em Cabo Verde
