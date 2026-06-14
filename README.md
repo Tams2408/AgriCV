@@ -22,8 +22,9 @@ Python 3 + SWI-Prolog
 
 ## Como executar
 
-Versão terminal:    python main.py
-Versão com janela:  python main_gui.py
+- Versão terminal:    python main.py
+
+- Versão com janela:  python main_gui.py
 
 ## Ficheiros
 
