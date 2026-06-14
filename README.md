@@ -12,7 +12,7 @@ Autores: Natalino Semedo, Tamiris Évora e David Santos
 
 **Linguagens:**
 
-** Python 3 + SWI-Prolog 
+Python 3 + SWI-Prolog 
 
 ## Como instalar
 
