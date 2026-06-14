@@ -352,14 +352,14 @@ No final de cada consulta, o sistema apresenta uma dica de rega personalizada pa
 
 A versão de terminal apresenta menus numerados para todas as escolhas, tornando impossível errar a digitação.
 
-==========================================
-        AgriCV - Sistema Agrícola CV
- Recomendação de Culturas em Cabo Verde
-==========================================
-O que deseja fazer?
-1 - Obter recomendação
-2 - Ver todas as culturas de uma ilha
-0 - Sair
+
+    | AgriCV - Sistema Agrícola CV |
+| Recomendação de Culturas em Cabo Verde |
+
+| O que deseja fazer? |
+| 1 - Obter recomendação |
+| 2 - Ver todas as culturas de uma ilha |
+| 0 - Sair |
 
 ### 10.2 Versão Gráfica (main_gui.py) 
 
