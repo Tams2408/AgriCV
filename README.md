@@ -445,10 +445,11 @@ O AgriCV é um primeiro passo concreto na digitalização do apoio à agricultur
 
 ## 15. Referências Bibliográficas 
 
-- INIDA — Instituto Nacional de Investigação e Desenvolvimento Agrário de Cabo Verde. www.inida.cv
 - SWI-Prolog — Documentação oficial. www.swi-prolog.org
-- PySwip — Biblioteca Python para SWI-Prolog. https://github.com/yuce/pyswip
+- PySwip — Biblioteca Python para SWI-Prolog.
 - Python 3 — Documentação oficial. www.python.org
 - Tkinter — Documentação oficial Python. https://docs.python.org/3/library/tkinter.html
 - ODS 2 — Fome Zero e Agricultura Sustentável. www.undp.org/sustainable-development-goals
-- Ministério do Ambiente e Agricultura de Cabo Verde — Relatórios agrícolas.
+- FAO – Food and Agriculture Organization. https://www.fao.org
+- Current Status and Trends in Cabo Verde Agriculture. https://www.mdpi.com/2073-4395/10/1/74
+- O desafio dos recursos hídricos em Cabo Verde - In Cabo Verde – Agronomia e Recursos Naturais. (https://www.researchgate.net/publication/271835969_O_desafio_dos_recursos_hidricos_em_Cabo_Verde_-_In_Cabo_Verde_-_Agronomia_e_Recursos_Naturais)
